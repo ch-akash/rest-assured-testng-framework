@@ -7,8 +7,8 @@ on:
     branches: [ "main" ]
 
 env:
-  RESTBOOKER_USERNAME: ${{secrets.BOOKERUSERNAME}}
-  RESTBOOKER_PASSWORD: ${{secrets.BOOKERPASSWORD}}
+  RESTBOOKER_USERNAME: ${secrets.BOOKERUSERNAME}
+  RESTBOOKER_PASSWORD: ${secrets.BOOKERPASSWORD}
 
 jobs:
   build:
