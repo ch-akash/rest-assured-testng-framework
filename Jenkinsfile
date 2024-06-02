@@ -1,19 +1,21 @@
 pipeline {
     agent any
 
-//    tools {
-//        maven 'Maven'
-//    }
-
     tools {
-        dockerTool 'Docker'
+        maven 'Maven'
     }
+
+    // Uncomment this to run with Docker in pipeline
+//    tools {
+//        dockerTool 'Docker'
+//    }
 
     stages {
         stage('Build') {
             steps {
-//                sh "mvn clean install -DskipTests"
-                sh "docker build -t rest-assured-testng ."
+                sh "mvn clean install -DskipTests"
+                // Uncomment this to run with Docker in pipeline
+//                sh "docker build -t rest-assured-testng ."
             }
         }
 
@@ -26,9 +28,10 @@ pipeline {
                                 usernameVariable: 'RESTBOOKER_USERNAME',
                                 passwordVariable: 'RESTBOOKER_PASSWORD'
                         )]) {
-//                            sh "mvn test -P${profile}"
-                            sh "docker run -v \$(pwd)/allure-results:/app/allure-results " +
-                                    "-e RESTBOOKER_USERNAME -e RESTBOOKER_PASSWORD -e MAVEN_PROFILE=${profile} rest-assured-testng"
+                            sh "mvn test -P${profile}"
+                            // Uncomment this to run with Docker in pipeline
+//                            sh "docker run -v \$(pwd)/allure-results:/app/allure-results " +
+//                                    "-e RESTBOOKER_USERNAME -e RESTBOOKER_PASSWORD -e MAVEN_PROFILE=${profile} rest-assured-testng"
                         }
                     }
                 }
