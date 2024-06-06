@@ -13,6 +13,7 @@ This is a sample project that demonstrates how to use RestAssured and TestNG to 
 - [Java 21](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 - [Maven 3.9.5](https://maven.apache.org/download.cgi)
 - [Allure TestNG 2.24.0](https://allurereport.org/docs/testng/)
+- [Allure REST Assured](https://allurereport.org/docs/restassured/)
 
 ## Getting Started
 
